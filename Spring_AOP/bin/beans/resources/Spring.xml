@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+<aop:aspectj-autoproxy/>
+
+<bean id="math" class="beans.service.Math"/>
+<bean id="calc" class="beans.service.LoanCalculator"/>
+<bean id="keyGen" class="beans.service.KeyGenerator" />
+<bean id="auth" class="beans.service.AuthenticateManager"/>
+ 
+<bean id="around" class="beans.aop.declarative.LoggingAroundAspect"/>
+<bean id="before" class="beans.aop.declarative.SecurityBeforeAspect"/>
+<bean id="after" class="beans.aop.declarative.WeakerKeyAfterAspect"/>
+<bean id="thrw" class="beans.aop.declarative.HandleThrowsAspect"/>
+
+<bean id="annotatedAspect" class="beans.aop.annotation.AnnotationAllAspect" />
+
+<aop:config>
+	<aop:pointcut expression="execution(* beans.service.Math.add(..))" id="pc1"/>
+	<aop:pointcut expression="execution(* beans.service.LoanCalculator.*(..)) and args(princpal,noOfYears,rateOfInt)" id="pc2"/>
+	<aop:pointcut expression="execution(* beans.service.KeyGenerator.*(..))"  id="pc3"/>
+	<aop:aspect id="aspect1" ref="around">
+		<aop:around method="log" pointcut-ref="pc1"/>
+	</aop:aspect>
+	
+	<aop:aspect id="aspect2" ref="before" >
+		<aop:before method="check" pointcut-ref="pc2" arg-names="princpal,noOfYears,rateOfInt" />
+	</aop:aspect>
+	
+	<aop:aspect id="aspect3" ref="after" >
+		<aop:after-returning method="afterReturning"   returning="generatedKey" pointcut-ref="pc3"/>
+	</aop:aspect>
+	
+	<aop:aspect id="aspect3" ref="after" >
+		<aop:after method="afterExiting"  pointcut-ref="pc3"/>
+	</aop:aspect>
+	<aop:aspect id="aspect4" ref="thrw" >
+		 <aop:after-throwing method="afterException" throwing="thr"  pointcut-ref="pc3"/>
+	</aop:aspect>
+</aop:config>
+ 
+  
+ 
+
+</beans>
