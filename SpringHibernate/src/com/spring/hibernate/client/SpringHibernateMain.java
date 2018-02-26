@@ -16,7 +16,7 @@ public class SpringHibernateMain {
 		// TODO Auto-generated method stub
 		ApplicationContext context=new ClassPathXmlApplicationContext("com/spring/hibernate/resources/spring.xml");
 		
-		/*PersonDAO personDAO = context.getBean(PersonDAO.class);
+		PersonDAO personDAO = context.getBean(PersonDAO.class);
 		
 		Person person = new Person();
 		person.setId(51595913);
@@ -33,7 +33,7 @@ public class SpringHibernateMain {
 			System.out.println("Person List::"+p);
 		}
 		//close resources
-		((ClassPathXmlApplicationContext)context).close();*/
+		((ClassPathXmlApplicationContext)context).close();
 	}
 
 }

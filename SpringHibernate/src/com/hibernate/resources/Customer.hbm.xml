@@ -3,7 +3,7 @@
 "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
 <hibernate-mapping>
 
-	<class name="com.hibernate.onetoone.model.Customer" table="CUSTOMER">
+	<class name="com.hibernate.onetoone.model.Customer" table="customer">
 		<id name="id" type="long">
 			<column name="txn_id" />
 			<generator class="foreign">

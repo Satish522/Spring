@@ -6,5 +6,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring-5.0.2"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
 	<classpathentry kind="lib" path="C:/MyWork/Java Stuff/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/MyWork/JAVA Library/postgresql-9.4.1212.jre6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
