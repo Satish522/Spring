@@ -2,7 +2,8 @@ package com.hibernate.onetoone.model;
 
 import java.util.Date;
 
-public class Transaction {
+
+public class Transactions {
 	private long id;
 	private Date date;
 	private double total;
@@ -35,7 +36,7 @@ public class Transaction {
 	
 	@Override
 	public String toString() {
-		return "Transaction [id=" + id + ", date=" + date + ", total=" + total + ", customer=" + customer + "]";
+		return "Transactions [id=" + id + ", date=" + date + ", total=" + total + ", customer=" + customer + "]";
 	}
 	
 	

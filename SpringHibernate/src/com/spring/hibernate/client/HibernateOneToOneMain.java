@@ -4,35 +4,36 @@ import java.util.Date;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import com.hibernate.onetoone.dao.HibernateUtil;
 import com.hibernate.onetoone.model.Customer;
-import com.hibernate.onetoone.model.Transaction;
+import com.hibernate.onetoone.model.Transactions;
 
 public class HibernateOneToOneMain {
 
 	public static void main(String[] args) {
 		
-		Transaction txn = buildDemoTransaction();
-		
+		Transactions txn = buildDemoTransaction();
+		System.out.println(txn.toString());
 		SessionFactory sessionFactory = null;
 		Session session = null;
-		org.hibernate.Transaction tx = null;
+		Transaction tx = null;
 		try{
 		//Get Session
 		sessionFactory = HibernateUtil.getSessionFactory();
 		session = sessionFactory.getCurrentSession();
-		System.out.println("Session created");
+		System.out.println("Session created ");
 		//start transaction
-		tx = (org.hibernate.Transaction) session.beginTransaction();
-		 
+		tx = session.beginTransaction();
+		System.out.println("Begin Transaction ");
 		//Save the Model object
 		session.save(txn);
-		System.out.println("Transaction Saved");
+		System.out.println("Transactions Saved");
 		//Commit transaction
-		tx.commit();
-		System.out.println("Transaction Committed");
-		System.out.println("Transaction ID="+txn.getId());
+		//tx.commit();
+		System.out.println("Transactions Committed");
+		System.out.println("Transactions ID="+txn.getId());
 		
 		//Get Saved Trasaction Data
 		//printTransactionData(txn.getId(), sessionFactory);
@@ -42,7 +43,7 @@ public class HibernateOneToOneMain {
 			e.printStackTrace();
 		}finally{
 			if(!sessionFactory.isClosed()){
-				System.out.println("Closing SessionFactory");
+				System.out.println("Closing Session Factory");
 				sessionFactory.close();
 			}
 		}
@@ -50,7 +51,7 @@ public class HibernateOneToOneMain {
 
 	/*private static void printTransactionData(long id, SessionFactory sessionFactory) {
 		Session session = null;
-		Transaction tx = null;
+		Transactions tx = null;
 		try{
 			//Get Session
 			sessionFactory = HibernateUtil.getSessionFactory();
@@ -61,7 +62,7 @@ public class HibernateOneToOneMain {
 			Txn txn = (Txn) session.get(Txn.class, id);
 			//Commit transaction
 			tx.commit();
-			System.out.println("Transaction Details=\n"+txn);
+			System.out.println("Transactions Details=\n"+txn);
 			
 			}catch(Exception e){
 				System.out.println("Exception occured. "+e.getMessage());
@@ -69,8 +70,8 @@ public class HibernateOneToOneMain {
 			}
 	}*/
 
-	private static Transaction buildDemoTransaction() {
-		Transaction txn = new Transaction();
+	private static Transactions buildDemoTransaction() {
+		Transactions txn = new Transactions();
 		txn.setDate(new Date());
 		txn.setTotal(100);
 		
@@ -79,9 +80,10 @@ public class HibernateOneToOneMain {
 		cust.setEmail("satishsubudhi522@gmail.com");
 		cust.setName("Satish Kumar Subudhi");
 		
-		txn.setCustomer(cust);
+		//txn.setCustomer(cust);
 		
-		cust.setTransaction(txn);
+		//cust.setTransaction(txn);
+		
 		return txn;
 	}
 

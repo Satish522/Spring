@@ -10,16 +10,16 @@
 				<param name="property">txn</param>
 			</generator>
 		</id>
-		<one-to-one name="transaction" class="com.hibernate.onetoone.model.Transaction"
+		<one-to-one name="transaction" class="com.hibernate.onetoone.model.Transactions"
 			constrained="true"></one-to-one>
 
-		<property name="name" type="string">
+		<property name="name" type="java.lang.String">
 			<column name="cust_name"></column>
 		</property>
-		<property name="email" type="string">
+		<property name="email" type="java.lang.String">
 			<column name="cust_email"></column>
 		</property>
-		<property name="address" type="string">
+		<property name="address" type="java.lang.String">
 			<column name="cust_address"></column>
 		</property>
 	</class>

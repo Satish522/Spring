@@ -20,14 +20,9 @@ public class HibernateUtil {
 	
 	//Property based configuration
 	private static SessionFactory sessionJavaConfigFactory;
-		
-	private HibernateUtil() {
-		System.out.println("Hibernate Util Constructor..");
-		
-		 
-	}
 	
 	private static SessionFactory buildSessionFactory() {
+		System.out.println("Building sessionFactory...");
 		try {
 		Configuration config=new Configuration().configure("/com/spring/hibernate/resources/hibernate.cfg.xml");
 		

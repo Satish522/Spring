@@ -19,8 +19,8 @@ public class SpringHibernateMain {
 		PersonDAO personDAO = context.getBean(PersonDAO.class);
 		
 		Person person = new Person();
-		person.setId(51595913);
-		person.setName("Satish");
+		person.setId(51595943);
+		person.setName("Dora");
 		person.setCountry("India");
 		
 		personDAO.save(person);

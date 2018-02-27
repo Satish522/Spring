@@ -6,7 +6,7 @@ public class Customer {
 	private String email;
 	private String address;
 	
-	private Transaction transaction;
+	private Transactions transactions;
 
 	public long getId() {
 		return id;
@@ -40,18 +40,18 @@ public class Customer {
 		this.address = address;
 	}
 
-	public Transaction getTransaction() {
-		return transaction;
+	public Transactions getTransaction() {
+		return transactions;
 	}
 
-	public void setTransaction(Transaction transaction) {
-		this.transaction = transaction;
+	public void setTransaction(Transactions transactions) {
+		this.transactions = transactions;
 	}
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", email=" + email + ", address=" + address + ", transaction="
-				+ transaction + "]";
+		return "Customer [id=" + id + ", name=" + name + ", email=" + email + ", address=" + address + ", transactions="
+				+ transactions + "]";
 	}
 	
 	
