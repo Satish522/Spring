@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GeneratorType;
 
 /**
  * Entity bean with JPA annotations
@@ -18,6 +21,8 @@ import javax.persistence.Table;
 public class Person {
 
 	@Id
+	@SequenceGenerator(name="pk_sequence",sequenceName="transaction_sequence", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="pk_sequence")
 	@Column(name="p_id")
 	private int id;
 	
