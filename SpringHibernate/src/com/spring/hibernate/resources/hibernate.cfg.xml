@@ -13,8 +13,8 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="hibernate.show_sql">true</property>
 		
-		<!-- <mapping resource="Transaction.hbm.xml" />
-        <mapping resource="Customer.hbm.xml"/>  -->
+		<mapping resource="Transaction.hbm.xml" />
+        <mapping resource="Customer.hbm.xml"/>  
         
 	</session-factory>
 </hibernate-configuration>

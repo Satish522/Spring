@@ -29,9 +29,10 @@ public class HibernateOneToOneMain {
 		System.out.println("Begin Transaction ");
 		//Save the Model object
 		session.save(txn);
+		
 		System.out.println("Transactions Saved");
 		//Commit transaction
-		//tx.commit();
+		tx.commit();
 		System.out.println("Transactions Committed");
 		System.out.println("Transactions ID="+txn.getId());
 		

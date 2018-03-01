@@ -4,15 +4,15 @@ import java.util.Date;
 
 
 public class Transactions {
-	private long id;
+	private int id;
 	private Date date;
-	private double total;
+	private int total;
 	private Customer customer;
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public Date getDate() {
@@ -21,10 +21,10 @@ public class Transactions {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public double getTotal() {
+	public int getTotal() {
 		return total;
 	}
-	public void setTotal(double total) {
+	public void setTotal(int total) {
 		this.total = total;
 	}
 	public Customer getCustomer() {
