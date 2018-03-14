@@ -11,19 +11,21 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
 
  
 
 @Entity
 @Table(name="customer")
-@SequenceGenerator(
-name = "seqid-gen", 
-sequenceName = "transaction_sequence" ,
-initialValue = 1, allocationSize = 1)
 public class Customer {
+
+	 
 	@Id
 	@Column(name="txn_id")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqid-gen")
+	@GeneratedValue(generator="foreign")
+	@GenericGenerator(name="foreign", strategy = "foreign", parameters={
+			@Parameter(name="property", value="transactions")})
     private long id;
 	
 	@Column(name="cust_name")
@@ -35,7 +37,7 @@ public class Customer {
 	@Column(name="cust_cont")
 	private String contact;
 	
-	@OneToOne
+	@OneToOne(mappedBy="customer")
 	@PrimaryKeyJoinColumn
 	private Transactions transactions;
 

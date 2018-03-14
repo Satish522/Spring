@@ -31,7 +31,7 @@ public class Transactions {
 	@Column(name="amount")
 	private int total;
 	
-	@OneToOne(cascade=CascadeType.ALL,mappedBy="transactions")
+	@OneToOne(cascade=CascadeType.ALL)
 	private Customer customer;
 	
 	public int getId() {

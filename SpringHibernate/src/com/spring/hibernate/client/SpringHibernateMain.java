@@ -57,9 +57,9 @@ public class SpringHibernateMain {
 		cust.setEmail("satishsubudhi522@gmail.com");
 		cust.setName("Satish Kumar Subudhi");
 		
-		//txn.setCustomer(cust);
+		txn.setCustomer(cust);
 		
-		//cust.setTransaction(txn);
+		cust.setTransaction(txn);
 		
 		return txn;
 	}
