@@ -2,11 +2,36 @@ package com.hibernate.onetoone.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="transaction")
+@SequenceGenerator(
+name = "seqid-gen", 
+sequenceName = "transaction_sequence" ,
+initialValue = 1, allocationSize = 1)
 public class Transactions {
+	
+	@Id
+	@Column(name="txn_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqid-gen")
 	private int id;
+	
+	@Column(name="txn_date")
 	private Date date;
+	
+	@Column(name="amount")
 	private int total;
+	
+	@OneToOne(cascade=CascadeType.ALL,mappedBy="transactions")
 	private Customer customer;
 	
 	public int getId() {

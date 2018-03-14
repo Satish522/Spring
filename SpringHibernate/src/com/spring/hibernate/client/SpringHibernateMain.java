@@ -19,14 +19,14 @@ public class SpringHibernateMain {
 	@Transactional
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		ApplicationContext context=new ClassPathXmlApplicationContext("/spring.xml");
+		ApplicationContext context=new ClassPathXmlApplicationContext("com/spring/hibernate/resources/spring.xml");
 		
 		Transactions txn = buildDemoTransaction();
 		
 		HibernateDAO hibernateDao=context.getBean(HibernateDAO.class);
 		
 		hibernateDao.saveOneToOne(txn);
-		PersonDAO personDAO = context.getBean(PersonDAO.class);
+		/*PersonDAO personDAO = context.getBean(PersonDAO.class);
 		
 		Person person = new Person();
 		//person.setId(51195943);
@@ -42,7 +42,7 @@ public class SpringHibernateMain {
 		for(Person p : list){
 			System.out.println("Person List::"+p);
 		}
-		
+		*/
 		//close resources
 		((ClassPathXmlApplicationContext)context).close();
 	}
@@ -53,7 +53,7 @@ public class SpringHibernateMain {
 		txn.setTotal(100);
 		
 		Customer cust = new Customer();
-		cust.setAddress("Chennai, India");
+		cust.setContact("Chennai, India");
 		cust.setEmail("satishsubudhi522@gmail.com");
 		cust.setName("Satish Kumar Subudhi");
 		
@@ -67,3 +67,5 @@ public class SpringHibernateMain {
 	
 
 }
+
+/*           */

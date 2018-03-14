@@ -16,14 +16,16 @@
  		<property name="annotatedClasses">
 			<list>
 				<value>com.spring.hibernate.model.Person</value>
+				<value>com.hibernate.onetoone.model.Customer</value>
+				<value>com.hibernate.onetoone.model.Transactions</value> 
 			</list>	
 		</property>
-		<property name="mappingResources">
+		<!-- <property name="mappingResources">
 			<list>
 				<value>com/hibernate/resources/Customer.hbm.xml</value>
 				<value>com/hibernate/resources/Transaction.hbm.xml</value>
 			</list>
-		</property>
+		</property> -->
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hbm2ddl.auto">update</prop> 
