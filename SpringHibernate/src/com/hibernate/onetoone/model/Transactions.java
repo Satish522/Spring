@@ -12,6 +12,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+
 @Entity
 @Table(name="transaction")
 @SequenceGenerator(
@@ -31,7 +33,7 @@ public class Transactions {
 	@Column(name="amount")
 	private int total;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(mappedBy="transactions",cascade= CascadeType.ALL)
 	private Customer customer;
 	
 	public int getId() {

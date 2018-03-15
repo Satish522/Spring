@@ -1,0 +1,10 @@
+1-> org.hibernate.HibernateException: identifier of an instance of members.Appointment was altered from 8 to 8 
+
+Solution:- The problem was that the idAppointment member variable in the Java class and the idappointment field 
+in the MySQL database table were of the type int. So why the hell did I have the type short in the mapping? 
+The answer is simple: because of the copy paste. So the correct code is:
+
+<id name="idAppointment" column="idappointment">
+<generator class="native"/>
+</id>
+Conclusion: copy paste is sometimes evil.

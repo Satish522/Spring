@@ -22,11 +22,11 @@ public class Customer {
 
 	 
 	@Id
-	@Column(name="txn_id")
-	@GeneratedValue(generator="foreign")
-	@GenericGenerator(name="foreign", strategy = "foreign", parameters={
+	@Column(name="txn_id", unique=true, nullable=false)
+	@GeneratedValue(generator="gen")
+	@GenericGenerator(name="gen", strategy = "foreign", parameters={
 			@Parameter(name="property", value="transactions")})
-    private long id;
+    private int id;
 	
 	@Column(name="cust_name")
 	private String name;
@@ -37,15 +37,15 @@ public class Customer {
 	@Column(name="cust_cont")
 	private String contact;
 	
-	@OneToOne(mappedBy="customer")
+	@OneToOne
 	@PrimaryKeyJoinColumn
 	private Transactions transactions;
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

@@ -44,7 +44,7 @@ public class SpringHibernateMain {
 		}
 		*/
 		//close resources
-		((ClassPathXmlApplicationContext)context).close();
+		//((ClassPathXmlApplicationContext)context).close();
 	}
 	
 	private static Transactions buildDemoTransaction() {
