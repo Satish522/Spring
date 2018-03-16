@@ -21,6 +21,11 @@ public class HibernateUtil {
 	//Property based configuration
 	private static SessionFactory sessionJavaConfigFactory;
 	
+	
+	/**
+	 * Building SessionFactory using standard service Registry 
+	 */
+
 	private static SessionFactory buildSessionFactory() {
 		System.out.println("Building sessionFactory...");
 		try {
