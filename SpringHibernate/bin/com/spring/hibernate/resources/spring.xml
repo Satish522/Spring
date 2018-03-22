@@ -18,6 +18,10 @@
 				<value>com.spring.hibernate.model.Person</value>
 				<value>com.hibernate.onetoone.model.Customer</value>
 				<value>com.hibernate.onetoone.model.Transactions</value> 
+				<value>com.hibernate.onetomany.model.Cart</value>
+				<value>com.hibernate.onetomany.model.Items</value>
+				<value>com.hibernate.manytomany.model.Student</value>
+				<value>com.hibernate.manytomany.model.Subject</value>
 			</list>	
 		</property>
 		<!-- <property name="mappingResources">
@@ -42,6 +46,14 @@
 	</bean>
 	
 	<bean id="hibernateDao" class="com.hibernate.onetoone.dao.HibernateDAO">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="oneToManyDao" class="com.hibernate.onetomany.dao.HibernateDAO">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="manyToManyDao" class="com.hibernate.manytomany.dao.HibernateDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 
