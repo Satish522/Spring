@@ -10,6 +10,9 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.internal.SessionFactoryServiceRegistryBuilderImpl;
 import org.hibernate.service.spi.SessionFactoryServiceRegistry;
 
+import com.hibernate.model.Address;
+import com.hibernate.model.Employee;
+
 public class HibernateUtil {
 	
 	//XML based configuration
@@ -29,11 +32,14 @@ public class HibernateUtil {
 	private static SessionFactory buildSessionFactory() {
 		System.out.println("Building sessionFactory...");
 		try {
-		Configuration config=new Configuration().configure("hibernate.cfg.xml");
+		Configuration config=new Configuration().configure("/com/spring/hibernate/resources/hibernate.cfg.xml");
+		//System.out.println(config.getProperties());
+		
+		config.addAnnotatedClass(com.hibernate.model.Employee.class).addAnnotatedClass(com.hibernate.model.Address.class);
 		
 		ServiceRegistry serviceRegistry=new StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();
 		sessionFactory=config.buildSessionFactory(serviceRegistry);
-		
+		//System.out.println(sessionFactory.getAllClassMetadata());
 		return sessionFactory;
 		}catch(Throwable thr) {
 			System.err.println("Initial SessionFactory cration fails"+thr);

@@ -13,18 +13,18 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="student")
+@Table(name="subject")
 @SequenceGenerator(
 name = "subject_seq", 
 sequenceName = "subject_seq" ,
 initialValue = 1, allocationSize = 1)
 public class Subject {
 	 	@Id
-	 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="subject_id")
+	 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="subject_seq")
 	    @Column(name = "subject_id")
 	    private int id;
 	 
-	    @Column(name = "name")
+	    @Column(name = "subject_name")
 	    private String name;
 	     
 	    
