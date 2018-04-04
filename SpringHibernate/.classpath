@@ -2,10 +2,9 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Extra-Lib"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring-5.0.2"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
-	<classpathentry kind="lib" path="C:/MyWork/Java Stuff/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="C:/MyWork/JAVA Library/postgresql-9.4.1212.jre6.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/common-aspect"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate5"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring5"/>
+	<classpathentry kind="lib" path="F:/postgresql-9.4.1212.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
